@@ -1,20 +1,5 @@
 package com.example.android.roomwordssample;
 
-/*
- * Copyright (C) 2018 Google Inc.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
 
 import androidx.sqlite.db.SupportSQLiteDatabase;
 import androidx.room.Database;
@@ -24,10 +9,7 @@ import android.content.Context;
 import android.os.AsyncTask;
 import androidx.annotation.NonNull;
 
-/**
- * This is the backend. The database. This used to be done by the OpenHelper.
- * The fact that this has very few comments emphasizes its coolness.
- */
+
 
 @Database(entities = {Word.class}, version = 1,  exportSchema = false)
 public abstract class WordRoomDatabase extends RoomDatabase {
@@ -53,10 +35,7 @@ public abstract class WordRoomDatabase extends RoomDatabase {
         return INSTANCE;
     }
 
-    /**
-     * Override the onOpen method to populate the database.
-     * For this sample, we clear the database every time it is created or opened.
-     */
+
     private static final RoomDatabase.Callback sRoomDatabaseCallback = new RoomDatabase.Callback(){
 
         @Override
@@ -68,10 +47,7 @@ public abstract class WordRoomDatabase extends RoomDatabase {
         }
     };
 
-    /**
-     * Populate the database in the background.
-     * If you want to start with more words, just add them.
-     */
+
     private static class PopulateDbAsync extends AsyncTask<Void, Void, Void> {
 
         private final WordDao mDao;
